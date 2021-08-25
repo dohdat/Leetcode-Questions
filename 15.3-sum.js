@@ -47,3 +47,7 @@ var threeSum = function (nums) {
 // @after-stub-for-debug-begin
 module.exports = threeSum;
 // @after-stub-for-debug-end
+// Accepted
+// 318/318 cases passed (148 ms)
+// Your runtime beats 62.53 % of javascript submissions
+// Your memory usage beats 76.61 % of javascript submissions (49.1 MB)
