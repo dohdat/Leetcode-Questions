@@ -13,7 +13,8 @@
 //calculates all sums, then find the closest one to target
 
 var threeSumClosest = function (nums, target) {
-    nums.sort((a, b) => a - b);
+    nums = [-1, 2, 1, -4];
+    target = 1;
     let res = [];
     for (let i = 0; i < nums.length; i++) {
         if (i > 0 && nums[i] === nums[i - 1]) {
@@ -23,27 +24,34 @@ var threeSumClosest = function (nums, target) {
         let r = nums.length - 1;
         while (l < r) {
             let sum = nums[i] + nums[l] + nums[r];
+            console.log("sum:", sum);
             res.push(sum);
             l++;
             r--;
         }
     }
-    let min = Number.MAX_VALUE;
-    let hashMap = {};
-    res.forEach((item) => ((min = Math.min(min, target - item)), (hashMap[item] = min)));
-    let keys = Object.keys(hashMap);
-    let closest = hashMap[keys[0]];
 
-    for (let i = 0; i < keys.length; i++) {
-        let value = hashMap[keys[i]];
-        closest = Math.min(closest, value);
-    }
+    var closest = res.reduce((prev, cur) => {
+        return Math.abs(cur - target) < Math.abs(prev - target) ? cur : prev;
+    });
+    return closest;
 
-    for (let i in hashMap) {
-        if (hashMap[i] === closest) {
-            return i;
-        }
-    }
+    // let min = Number.MAX_VALUE;
+    // let hashMap = {};
+    // res.forEach((item) => ((min = Math.min(min, target - item)), (hashMap[item] = min)));
+    // let keys = Object.keys(hashMap);
+    // let closest = hashMap[keys[0]];
+
+    // for (let i = 0; i < keys.length; i++) {
+    //     let value = hashMap[keys[i]];
+    //     closest = Math.min(closest, value);
+    // }
+
+    // for (let i in hashMap) {
+    //     if (hashMap[i] === closest) {
+    //         return i;
+    //     }
+    // }
 };
 // @lc code=end
 // @after-stub-for-debug-begin
