@@ -10,11 +10,11 @@
  * @return {number[][]}
  */
 var threeSum = function (nums) {
-    nums.sort();
+    nums.sort((a, b) => a - b);
     let res = [];
-    for (let i = 0; i < nums.length; i++) {
+    for (let i = 0; i < nums.length - 2; i++) {
         //if nums[i] and nums[i-1] is the same, then skip
-        if (nums[i] === nums[i - 1]) {
+        if (i > 0 && nums[i] === nums[i - 1]) {
             continue; //skip same
         }
         let l = i + 1; //second index after i
@@ -28,6 +28,13 @@ var threeSum = function (nums) {
                 r--;
             } else {
                 res.push([nums[i], nums[l], nums[r]]);
+                //conditions to check for duplicates
+                while (nums[l] === nums[l + 1]) {
+                    l++;
+                }
+                while (nums[r] === nums[r - 1]) {
+                    r--;
+                }
                 l++;
                 r--;
             }
