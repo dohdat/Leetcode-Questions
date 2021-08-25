@@ -29,8 +29,15 @@ var threeSumClosest = function (nums, target) {
     }
     let min = Number.MAX_VALUE;
     let hashMap = {};
+    res.forEach((item) => ((min = Math.min(min, target - item)), (hashMap[item] = min)));
+    let keys = Object.keys(hashMap);
+    let closest = hashMap[keys[0]];
+    console.log("hashMap:", hashMap);
 
-    res.forEach((item) => (min = Math.min(min, target - item)));
+    for (let i = 0; i < keys.length; i++) {
+        let value = hashMap[keys[i]];
+        closest = Math.min(closest, value);
+    }
 };
 // @lc code=end
 
