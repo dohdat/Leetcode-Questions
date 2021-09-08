@@ -24,6 +24,7 @@ const isValid = function (s) {
     result = stack.length === 0;
     return result;
 };
+isValid("(((())))");
 // @lc code=end
 module.exports = isValid;
 // @after-stub-for-debug-end
