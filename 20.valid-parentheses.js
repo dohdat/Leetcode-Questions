@@ -9,17 +9,22 @@
  * @param {string} s
  * @return {boolean}
  */
-var isValid = function (s) {
-    let hashMap = [{ "(": ")" }, { "[": "]" }, { "{": "}" }];
-    let arr = s.split(" ");
-    let resultArr = [];
-    for (let i = 0; i < arr.length; i++) {
-        resultArr.push(arr[i]);
+const isValid = function (s) {
+    let result = false;
+    const stack = [];
+    const map = { "(": ")", "[": "]", "{": "}" };
+    for (let i = 0; i < s.length; i++) {
+        let c = s[i];
+        if (map[c]) {
+            stack.push(map[c]);
+        } else if (c !== stack.pop()) {
+            return false;
+        }
     }
-    return resultArr;
+    result = stack.length === 0;
+    return result;
 };
+isValid("(((())))");
 // @lc code=end
-
-// @after-stub-for-debug-begin
 module.exports = isValid;
 // @after-stub-for-debug-end
