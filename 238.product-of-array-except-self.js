@@ -10,12 +10,19 @@
  * @return {number[]}
  */
 var productExceptSelf = function (nums) {
-    let result = [];
-    result = nums.map((cur, i, arr) => {
-        let temp = arr.slice(); //clone the original array
-        temp.splice(i, 1); // remove the ith element from the array
-        return temp.reduce((prod = 1, num) => prod * num);
-    });
+    var result = [];
+    var leftMult = 1;
+    var rightMult = 1;
+    //multiply to the right
+    for (var i = nums.length - 1; i >= 0; i--) {
+        result[i] = rightMult;
+        rightMult *= nums[i];
+    }
+    //multiply to the left
+    for (var j = 0; j < nums.length; j++) {
+        result[j] *= leftMult;
+        leftMult *= nums[j];
+    }
     return result;
 };
 
