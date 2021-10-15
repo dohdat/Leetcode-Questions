@@ -10,21 +10,20 @@
  * @return {boolean}
  */
 const isValid = function (s) {
-    let result = false;
-    const stack = [];
+    let stack = [];
     const map = { "(": ")", "[": "]", "{": "}" };
     for (let i = 0; i < s.length; i++) {
         let c = s[i];
         if (map[c]) {
             stack.push(map[c]);
-        } else if (c !== stack.pop()) {
+        } else if (stack.pop() !== c) {
             return false;
         }
     }
-    result = stack.length === 0;
+    let result = stack.length === 0;
     return result;
 };
-isValid("(((())))");
+isValid("((((())))");
 // @lc code=end
 module.exports = isValid;
 // @after-stub-for-debug-end
