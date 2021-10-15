@@ -13,10 +13,11 @@ var singleNumber = function (nums) {
     let hashMap = {};
     nums.forEach((num) => (hashMap[num] = (hashMap[num] || 0) + 1));
 
-    for (let i in hashMap) {
+    for (let i in hashMap) 
         if (hashMap[i] == 1) {
             return i;
         }
+
     }
 };
 // @lc code=end
