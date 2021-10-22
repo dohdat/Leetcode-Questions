@@ -8,7 +8,21 @@ var keys = Object.keys(hashMap);
 keys.sort((a, b) => {
     return hashMap[b] - hashMap[a];
 });
+//Sorted hashmap
+var topKFrequent = function (nums, k) {
+    let res = [],
+        map = new Map();
 
+    nums.forEach((n) => map.set(n, map.get(n) + 1 || 1));
+
+    let sortedArray = [...map.entries()].sort((a, b) => b[1] - a[1]);
+
+    for (let i = 0; i < k; i++) {
+        res.push(sortedArray[i][0]);
+    }
+
+    return res;
+};
 //Arrays////////////////////////////////////////////////////////////////
 //convert array to string
 let resStr = result.join("");
@@ -33,8 +47,11 @@ arr.slice(startIndex, endIndex);
 arr.shift();
 // Adds a value as the first item of the array and returns the new length. shift and unshift are useful for Queues.
 arr.unshift(val);
-// Useful for reducing all the values in an array to a single value. 
-arr.reduce(function, initialValue)
+// Useful for reducing all the values in an array to a single value.
+const euros = [29.76, 41.85, 46.5];
+
+const sum = euros.reduce((total, amount) => total + amount); // 118.11
+
 // Removing an Item from an Array
 arr.splice(arr.indexOf(val), 1);
 
@@ -46,7 +63,7 @@ Object.values(obj);
 
 //Sets////////////////////////////////////////////////////////////////
 // They are basically unordered arrays, and cannot store duplicate values.
-//Declare a new set 
+//Declare a new set
 let set = new Set(array);
 let set = new Set();
 
@@ -54,7 +71,7 @@ let set = new Set();
 uniq = [...new Set(array)];
 
 //check the size of the Set
-set.size
+set.size;
 //add val to the set
 set.add(val);
 //remove val from the set
@@ -62,55 +79,49 @@ set.delete(val);
 //check if set has certain val
 set.has(val);
 
-
-
 //Leetcode common patterns to solve problems
 // If input array is sorted then
 //     - Binary search
 let iterativeFunction = function (arr, x) {
-  
-    let start=0, end=arr.length-1;
-         
+    let start = 0,
+        end = arr.length - 1;
+
     // Iterate while start not meets end
-    while (start<=end){
- 
+    while (start <= end) {
         // Find the mid index
-        let mid=Math.floor((start + end)/2);
-  
+        let mid = Math.floor((start + end) / 2);
+
         // If element is present at mid, return True
-        if (arr[mid]===x) return true;
- 
+        if (arr[mid] === x) return true;
         // Else look in left or right half accordingly
-        else if (arr[mid] < x)
-             start = mid + 1;
-        else
-             end = mid - 1;
+        else if (arr[mid] < x) start = mid + 1;
+        else end = mid - 1;
     }
-  
+
     return false;
-}
-  
+};
+
 //     - Two pointers/ Window Sliding Technique
 const arr = [2, 3, 4, 5, 6, 7, 8, 9];
 const k = 11;
 
 function findPairs(array, k) {
-  let start = 0;
-  let end = array.length - 1;
-  let occurances = [];
+    let start = 0;
+    let end = array.length - 1;
+    let occurances = [];
 
-  while (start < end) {
-    if (array[start] + array[end] === k) {
-      occurances.push([start, end]);
-      start++;
-      end--;
-    } else if (array[start] + array[end] < k) {
-      start++;
-    } else {
-      end--;
+    while (start < end) {
+        if (array[start] + array[end] === k) {
+            occurances.push([start, end]);
+            start++;
+            end--;
+        } else if (array[start] + array[end] < k) {
+            start++;
+        } else {
+            end--;
+        }
     }
-  }
-  return occurances;
+    return occurances;
 }
 
 // If asked for all permutations/subsets then
@@ -119,11 +130,11 @@ function findPairs(array, k) {
 //Example: find all possible permutations
 // Input: nums = [1,2,3]
 // Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
-var permute = function(nums) {
+var permute = function (nums) {
     let res = [];
     dfs(nums, new Set(), res);
     return res;
-}
+};
 function dfs(nums, curr, res) {
     if (curr.size == nums.length) {
         res.push(Array.from(curr));
@@ -140,47 +151,44 @@ function dfs(nums, curr, res) {
 // If given a tree || graph then
 //     - DFS
 function traverseDFS(root) {
-    let stack = [root]
-    let res = []
-    
-    while (stack.length) {      
-      let curr = stack.pop()
-      res.push(curr.key)
-      
-      if (curr.right){
-        stack.push(curr.right)
-      }
-      
-      if (curr.left){
-        stack.push(curr.left)
-      }
+    let stack = [root];
+    let res = [];
+
+    while (stack.length) {
+        let curr = stack.pop();
+        res.push(curr.key);
+
+        if (curr.right) {
+            stack.push(curr.right);
+        }
+
+        if (curr.left) {
+            stack.push(curr.left);
+        }
     }
-    
-    return res.reverse()
-  }
+
+    return res.reverse();
+}
 //     - BFS
 function traverseBFS(root) {
-    let queue = [root]
-    let res = []
-    
-    while (queue.length) {      
-      let curr = queue.shift()
-      res.push(curr.key)
-      
-      if (curr.right){
-        queue.push(curr.right)
-      }
-      
-      if (curr.left){
-        queue.push(curr.left)
-      }
-    }
-    
-    return res
-  }
+    let queue = [root];
+    let res = [];
 
-// If given a linked list then
-//     - Two pointers
+    while (queue.length) {
+        let curr = queue.shift();
+        res.push(curr.key);
+
+        if (curr.right) {
+            queue.push(curr.right);
+        }
+
+        if (curr.left) {
+            queue.push(curr.left);
+        }
+    }
+
+    return res;
+}
 
 // If recursion is banned then
 //     - Stack
@@ -192,7 +200,7 @@ function reverse(str) {
         stack.push(str[i]);
     }
     // pop letter from the stack
-    let reverseStr = '';
+    let reverseStr = "";
     while (stack.length > 0) {
         reverseStr += stack.pop();
     }
@@ -216,3 +224,38 @@ function reverse(str) {
 // Else
 //     - Map/Set for O(1) time & O(n) space
 //     - Sort input for O(nlogn) time and O(1) space
+
+//How to reverse linkedlist
+// O(n) time & O(1) space
+function reverse(head) {
+    let node = head,
+        previous,
+        tmp;
+
+    while (node) {
+        // save next before we overwrite node.next!
+        tmp = node.next;
+
+        // reverse pointer
+        node.next = previous;
+
+        // step forward in the list
+        previous = node;
+        node = tmp;
+    }
+
+    return previous;
+}
+
+//Kadane's algo to find max subarray
+function maxSubArray(nums) {
+    let maxCurrent = nums[0];
+    let maxGlobal = nums[0];
+    for (let i = 1; i < nums.length; i++) {
+        maxCurrent = Math.max(nums[i], maxCurrent + nums[i]);
+        if (maxCurrent > maxGlobal) {
+            maxGlobal = maxCurrent;
+        }
+    }
+    return maxGlobal;
+}
