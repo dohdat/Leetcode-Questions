@@ -9,6 +9,7 @@ keys.sort((a, b) => {
     return hashMap[b] - hashMap[a];
 });
 
+//Arrays////////////////////////////////////////////////////////////////
 //convert array to string
 let resStr = result.join("");
 
@@ -28,3 +29,35 @@ arr.pop();
 arr.slice();
 // Makes a copy of an array at some start index (inclusive) and end index (exclusive).
 arr.slice(startIndex, endIndex);
+// Removes the first item of the array and returns the array.
+arr.shift();
+// Adds a value as the first item of the array and returns the new length. shift and unshift are useful for Queues.
+arr.unshift(val);
+// Useful for reducing all the values in an array to a single value. 
+arr.reduce(function, initialValue)
+// Removing an Item from an Array
+arr.splice(arr.indexOf(val), 1);
+
+//Objects////////////////////////////////////////////////////////////////////////////////
+// Returns an array with a list of the keys as strings.
+Object.keys(obj);
+// Returns an array with a list of the values as strings.
+Object.values(obj);
+
+//Sets////////////////////////////////////////////////////////////////
+// They are basically unordered arrays, and cannot store duplicate values.
+//Declare a new set 
+let set = new Set(array);
+let set = new Set();
+
+//remove duplicates from the array
+uniq = [...new Set(array)];
+
+//check the size of the Set
+set.size
+//add val to the set
+set.add(val);
+//remove val from the set
+set.delete(val);
+//check if set has certain val
+set.has(val);
