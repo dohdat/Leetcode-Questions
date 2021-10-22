@@ -1,28 +1,3 @@
-//Create hashmap
-let hashMap = {};
-let arr = s.split(""); //Convert string to array
-arr.forEach((c) => (hashMap[c] = (hashMap[c] || 0) + 1));
-
-//Sort hashmap
-var keys = Object.keys(hashMap);
-keys.sort((a, b) => {
-    return hashMap[b] - hashMap[a];
-});
-//Sorted hashmap
-var topKFrequent = function (nums, k) {
-    let res = [],
-        map = new Map();
-
-    nums.forEach((n) => map.set(n, map.get(n) + 1 || 1));
-
-    let sortedArray = [...map.entries()].sort((a, b) => b[1] - a[1]);
-
-    for (let i = 0; i < k; i++) {
-        res.push(sortedArray[i][0]);
-    }
-
-    return res;
-};
 //Arrays////////////////////////////////////////////////////////////////
 //convert array to string
 let resStr = result.join("");
@@ -259,3 +234,29 @@ function maxSubArray(nums) {
     }
     return maxGlobal;
 }
+
+//Create hashmap
+let hashMap = {};
+let arr = s.split(""); //Convert string to array
+arr.forEach((c) => (hashMap[c] = (hashMap[c] || 0) + 1));
+
+//Sort hashmap
+var keys = Object.keys(hashMap);
+keys.sort((a, b) => {
+    return hashMap[b] - hashMap[a];
+});
+//Sorted hashmap
+var topKFrequent = function (nums, k) {
+    let res = [],
+        map = new Map();
+
+    nums.forEach((n) => map.set(n, map.get(n) + 1 || 1));
+
+    let sortedArray = [...map.entries()].sort((a, b) => b[1] - a[1]);
+
+    for (let i = 0; i < k; i++) {
+        res.push(sortedArray[i][0]);
+    }
+
+    return res;
+};
