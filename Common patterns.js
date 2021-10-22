@@ -61,3 +61,89 @@ set.add(val);
 set.delete(val);
 //check if set has certain val
 set.has(val);
+
+
+
+//Leetcode common patterns to solve problems
+// If input array is sorted then
+//     - Binary search
+let iterativeFunction = function (arr, x) {
+  
+    let start=0, end=arr.length-1;
+         
+    // Iterate while start not meets end
+    while (start<=end){
+ 
+        // Find the mid index
+        let mid=Math.floor((start + end)/2);
+  
+        // If element is present at mid, return True
+        if (arr[mid]===x) return true;
+ 
+        // Else look in left or right half accordingly
+        else if (arr[mid] < x)
+             start = mid + 1;
+        else
+             end = mid - 1;
+    }
+  
+    return false;
+}
+  
+//     - Two pointers/ Window Sliding Technique
+const arr = [2, 3, 4, 5, 6, 7, 8, 9];
+const k = 11;
+
+function findPairs(array, k) {
+  let start = 0;
+  let end = array.length - 1;
+  let occurances = [];
+
+  while (start < end) {
+    if (array[start] + array[end] === k) {
+      occurances.push([start, end]);
+      start++;
+      end--;
+    } else if (array[start] + array[end] < k) {
+      start++;
+    } else {
+      end--;
+    }
+  }
+  return occurances;
+}
+
+// If asked for all permutations/subsets then
+//     - Backtracking
+
+// If given a tree then
+//     - DFS
+//     - BFS
+
+// If given a graph then
+//     - DFS
+//     - BFS
+
+// If given a linked list then
+//     - Two pointers
+
+// If recursion is banned then
+//     - Stack
+
+// If must solve in-place then
+//     - Swap corresponding values
+//     - Store one or more different values in the same pointer
+
+// If asked for maximum/minumum subarray/subset/options then
+//     - Dynamic programming
+
+// If asked for top/least K items then
+//     - Heap
+
+// If asked for common strings then
+//     - Map
+//     - Trie
+
+// Else
+//     - Map/Set for O(1) time & O(n) space
+//     - Sort input for O(nlogn) time and O(1) space
