@@ -137,19 +137,67 @@ function dfs(nums, curr, res) {
     }
 }
 
-// If given a tree then
+// If given a tree || graph then
 //     - DFS
+function traverseDFS(root) {
+    let stack = [root]
+    let res = []
+    
+    while (stack.length) {      
+      let curr = stack.pop()
+      res.push(curr.key)
+      
+      if (curr.right){
+        stack.push(curr.right)
+      }
+      
+      if (curr.left){
+        stack.push(curr.left)
+      }
+    }
+    
+    return res.reverse()
+  }
 //     - BFS
-
-// If given a graph then
-//     - DFS
-//     - BFS
+function traverseBFS(root) {
+    let queue = [root]
+    let res = []
+    
+    while (queue.length) {      
+      let curr = queue.shift()
+      res.push(curr.key)
+      
+      if (curr.right){
+        queue.push(curr.right)
+      }
+      
+      if (curr.left){
+        queue.push(curr.left)
+      }
+    }
+    
+    return res
+  }
 
 // If given a linked list then
 //     - Two pointers
 
 // If recursion is banned then
 //     - Stack
+//how to reverse a string using a stack
+function reverse(str) {
+    let stack = [];
+    // push letter into stack
+    for (let i = 0; i < str.length; i++) {
+        stack.push(str[i]);
+    }
+    // pop letter from the stack
+    let reverseStr = '';
+    while (stack.length > 0) {
+        reverseStr += stack.pop();
+    }
+    return reverseStr;
+}
 
 // If must solve in-place then
 //     - Swap corresponding values
