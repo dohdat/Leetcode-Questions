@@ -98,7 +98,24 @@ function findPairs(array, k) {
     }
     return occurances;
 }
+//Two pointers/Sliding Window to find the max occurances of chars in a string
+// Input: s = "abbcccddddeeeeedcba"
+// Output: 5
+// Explanation: The substring "eeeee" is of length 5 with the character 'e' only.
+var maxPower = function (s) {
+    let power = 1;
 
+    let start = 0;
+    for (let end = 1; end < s.length; end++) {
+        if (s[start] !== s[end]) {
+            start = end;
+        }
+
+        power = Math.max(power, end - start + 1);
+    }
+
+    return power;
+};
 // If asked for all permutations/subsets then
 //     - Backtracking
 
