@@ -30,6 +30,11 @@ const sum = euros.reduce((total, amount) => total + amount); // 118.11
 // Removing an Item from an Array
 arr.splice(arr.indexOf(val), 1);
 
+//array.sort() assumes sorting strings
+arr.sort();
+//array.sort((a,b)=>a-b) sort numbers correctly
+arr.sort((a, b) => a - b);
+
 //Objects////////////////////////////////////////////////////////////////////////////////
 // Returns an array with a list of the keys as strings.
 Object.keys(obj);
@@ -307,4 +312,13 @@ function invertTree(root) {
     }
 
     return root;
+}
+//use Set to check if array is already in result to remove duplicates
+let res = [],
+    memo = new Set();
+let temp = nums[i] + nums[start] + nums[end];
+let tempRes = [nums[i], nums[start], nums[end]].toString();
+if (!memo.has(tempRes)) {
+    memo.add(tempRes);
+    res.push([nums[i], nums[start], nums[end]]);
 }

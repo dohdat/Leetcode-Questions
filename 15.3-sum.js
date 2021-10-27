@@ -9,23 +9,30 @@
  * @param {number[]} nums
  * @return {number[][]}
  */
-
+//sort the array first
+//then use sliding window technique
+//also remove duplicates using set
 var threeSum = function (nums) {
     nums.sort((a, b) => a - b);
-    let res = [];
+    let res = [],
+        memo = new Set();
     for (let i = 0; i < nums.length - 2; i++) {
-        let l = i;
-        let r = nums.length - 1;
-        while (l < r) {
-            sum = nums[l] + nums[r] + nums[i];
-            if (sum === 0) {
-                res.push([nums[l], nums[r], nums[i]]);
-                l++;
-                r--;
-            } else if (sum < 0) {
-                l++;
+        let start = i + 1;
+        let end = nums.length - 1;
+        while (start < end) {
+            let temp = nums[i] + nums[start] + nums[end];
+            if (temp === 0) {
+                let tempRes = [nums[i], nums[start], nums[end]].toString();
+                if (!memo.has(tempRes)) {
+                    memo.add(tempRes);
+                    res.push([nums[i], nums[start], nums[end]]);
+                }
+                start++;
+                end--;
+            } else if (temp < 0) {
+                start++;
             } else {
-                r--;
+                end--;
             }
         }
     }
