@@ -35,6 +35,9 @@ arr.sort();
 //array.sort((a,b)=>a-b) sort numbers correctly
 arr.sort((a, b) => a - b);
 
+//flatten array
+arr.flat();
+
 //Objects////////////////////////////////////////////////////////////////////////////////
 // Returns an array with a list of the keys as strings.
 Object.keys(obj);
