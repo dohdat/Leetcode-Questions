@@ -322,3 +322,17 @@ if (!memo.has(tempRes)) {
     memo.add(tempRes);
     res.push([nums[i], nums[start], nums[end]]);
 }
+//sorting in place: bubble sort
+// Because it sorts in place, no additional storage is required
+var bubbleSort = function (nums) {
+    //using bubble sort to sort in place
+    for (var i = 0; i < nums.length; i++) {
+        for (var j = 0; j < nums.length - i - 1; j++) {
+            //checking if the item at the present iteration is greater than the next iteration
+            if (nums[j] > nums[j + 1]) {
+                [nums[j], nums[j + 1]] = [nums[j + 1], nums[j]];
+            }
+        }
+    }
+    return nums;
+};
