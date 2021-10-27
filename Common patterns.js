@@ -282,6 +282,8 @@ var topKFrequent = function (nums, k) {
 
     return res;
 };
+//check if hashmap contains keys
+hashMap["key"] !== undefined;
 
 //Invert Binary Tree
 // DFS
