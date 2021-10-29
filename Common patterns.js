@@ -341,3 +341,6 @@ var bubbleSort = function (nums) {
     }
     return nums;
 };
+// The DFS strategy prioritizes depth over breadth.
+// These strategies tell us, with DFS, we usually process one single node at each step,
+// while in BFS, we could process multiple clusters of nodes.
