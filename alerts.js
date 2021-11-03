@@ -139,14 +139,14 @@ const findExtraCash = (alertSheet, emails) => {
 };
 
 const sendEmail = (email, ticker, type, cashVal, account) => {
-    const vars = ["10m", "from today", "MarketHours"];
+    const v = "10m from today [@MarketHours]";
     if (type === "over") {
-        MailApp.sendEmail(email, `🎉 STOCK PRICE ALERT for ${ticker}! Check Alert Sheet! 🎉`, `🤑 Over Alert Price for ${ticker} !🤑 🎉 ${vars[0]} ${vars[1]} [@${vars[2]}]`);
+        MailApp.sendEmail(email, `🎉 STOCK PRICE ALERT for ${ticker}! Check Alert Sheet! 🎉`, `🤑 Over Alert Price for ${ticker} !🤑 🎉 ${v}`);
     } else if (type === "limit") {
-        MailApp.sendEmail(email, `🔥 😍 SET LIMIT SELL for ${ticker}! Check Alert Sheet! 🔥`, `😍 Set Limit Sell for ${ticker}! ${vars[0]} ${vars[1]} [@${vars[2]}]`);
+        MailApp.sendEmail(email, `🔥 😍 SET LIMIT SELL for ${ticker}! Check Alert Sheet! 🔥`, `😍 Set Limit Sell for ${ticker}! ${v}`);
     } else if (type === "restore") {
-        MailApp.sendEmail(email, "STOCK PRICE ALERT! RESTORE POSITION! Check Alert Sheet!", `Under Alert Price ${vars[0]} ${vars[1]} [@${vars[2]}]`);
+        MailApp.sendEmail(email, "STOCK PRICE ALERT! RESTORE POSITION! Check Alert Sheet!", `Under Alert Price ${v}`);
     } else if (type === "extra") {
-        MailApp.sendEmail(email, `🤑 🎉 Extra capital $${cashVal} found in ${account} Account! 🤑 🎉`, `Extra capital in ${account} Account! ${vars[0]} ${vars[1]} [@${vars[2]}]`);
+        MailApp.sendEmail(email, `🤑 🎉 Extra capital $${cashVal} found in ${account} Account! 🤑 🎉`, `Extra capital in ${account} Account! ${v}`);
     }
 };
