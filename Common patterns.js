@@ -369,4 +369,24 @@ function dfs(board, i, j) {
     dfs(board, i, j + 1);
     dfs(board, i, j - 1);
     return;
+const array = ["a", "b", "c"];
+for (let cur in array) {
+} // loop through the index 1,2,3
+for (let cur of array) {
+} // loop through the element a,b,c
+
+//how to sort intervals
+intervals = [
+    [1, 3],
+    [2, 6],
+    [8, 10],
+    [15, 18],
+];
+intervals.sort((a, b) => a[0] - b[0]);
+//how to merge intervals
+let prev = intervals[0];
+let res = [prev];
+//loop through the intervals
+for (let cur of intervals) {
+    ///
 }
