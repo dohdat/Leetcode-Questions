@@ -10,38 +10,16 @@
  * @return {number[][]}
  */
 var merge = function (intervals) {
-    intervals = [
-        [1, 4],
-        [0, 4],
-    ];
-    let sort = false;
-    if (intervals.length % 2 === 0) {
-        for (let i = 0; i < intervals.length; i += 2) {
-            if (intervals[i][0] > intervals[i + 1][0]) {
-                sort = true;
-            }
+    intervals.sort((a, b) => a[0] - b[0]);
+    let prev = intervals[0];
+    let res = [prev];
+    for (let cur of intervals) {
+        if (cur[0] <= prev[1]) {
+            prev[1] = Math.max(prev[1], cur[1]);
+        } else {
+            res.push(cur);
+            prev = cur;
         }
-    }
-    let nums = !sort ? intervals.flat() : intervals.flat().sort((a, b) => a - b);
-    let res = [];
-    for (let i = 0; i < nums.length; i++) {
-        if (i % 2 === 0) {
-            if (nums[i] >= nums[i + 2]) {
-                nums.splice(nums.indexOf(nums[i]), 1);
-                nums.splice(nums.indexOf(nums[i]), 1);
-            }
-        } else if (i % 2 === 1) {
-            if (nums[i] >= nums[i + 1]) {
-                nums.splice(nums.indexOf(nums[i]), 1);
-                nums.splice(nums.indexOf(nums[i]), 1);
-            }
-        }
-    }
-    for (let i = 0; i < nums.length; i += 2) {
-        let temp = [];
-        temp.push(nums[i]);
-        temp.push(nums[i + 1]);
-        res.push(temp);
     }
     return res;
 };

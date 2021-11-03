@@ -344,3 +344,24 @@ var bubbleSort = function (nums) {
 // The DFS strategy prioritizes depth over breadth.
 // These strategies tell us, with DFS, we usually process one single node at each step,
 // while in BFS, we could process multiple clusters of nodes.
+const array = ["a", "b", "c"];
+for (let cur in array) {
+} // loop through the index 1,2,3
+for (let cur of array) {
+} // loop through the element a,b,c
+
+//how to sort intervals
+intervals = [
+    [1, 3],
+    [2, 6],
+    [8, 10],
+    [15, 18],
+];
+intervals.sort((a, b) => a[0] - b[0]);
+//how to merge intervals
+let prev = intervals[0];
+let res = [prev];
+//loop through the intervals
+for (let cur of intervals) {
+    ///
+}
