@@ -120,32 +120,33 @@ const findExtraCash = (alertSheet, emails) => {
     var extraCash6001 = Math.round(alertSheet.getRange("Y1").getValue());
     var maxValue8034 = alertSheet.getRange("W1").getValue();
     var maxValue6001 = alertSheet.getRange("X1").getValue();
-    var alertFlag = alertSheet.getRange("S2").getValue();
+    var alertFlag = alertSheet.getRange("S2");
     var percentToOpenNewPos = 0.05;
-    if (extraCash8034 > maxValue8034 * percentToOpenNewPos && alertFlag === "") {
+    if (extraCash8034 > maxValue8034 * percentToOpenNewPos && alertFlag.getValue() === "") {
         emails.map((e) => {
             sendEmail(e, null, "extra", extraCash8034, "8034");
         });
         Logger.log(`Extra cash ${extraCash8034} found in 8034 Account!`);
-        alertSheet.getRange("S2").setValue("YES");
+        alertFlag.setValue("YES");
     }
-    if (extraCash6001 > maxValue6001 * percentToOpenNewPos && alertFlag === "") {
+    if (extraCash6001 > maxValue6001 * percentToOpenNewPos && alertFlag.getValue() === "") {
         emails.map((e) => {
             sendEmail(e, null, "extra", extraCash6001, "6001");
         });
         Logger.log(`Extra cash ${extraCash8034} found in 6001 Account!`);
-        alertSheet.getRange("S2").setValue("YES");
+        alertFlag.setValue("YES");
     }
 };
 
 const sendEmail = (email, ticker, type, cashVal, account) => {
+    const vars = ["10m", "from today", "MarketHours"];
     if (type === "over") {
-        MailApp.sendEmail(email, `🎉 STOCK PRICE ALERT for ${ticker}! Check Alert Sheet! 🎉`, `🤑 Over Alert Price for ${ticker} !🤑 🎉`);
+        MailApp.sendEmail(email, `🎉 STOCK PRICE ALERT for ${ticker}! Check Alert Sheet! 🎉`, `🤑 Over Alert Price for ${ticker} !🤑 🎉 ${vars[0]} ${vars[1]} [@${vars[2]}]`);
     } else if (type === "limit") {
-        MailApp.sendEmail(email, `🔥 😍 SET LIMIT SELL for ${ticker}! Check Alert Sheet! 🔥`, `😍 Set Limit Sell for ${ticker}!`);
+        MailApp.sendEmail(email, `🔥 😍 SET LIMIT SELL for ${ticker}! Check Alert Sheet! 🔥`, `😍 Set Limit Sell for ${ticker}! ${vars[0]} ${vars[1]} [@${vars[2]}]`);
     } else if (type === "restore") {
-        MailApp.sendEmail(email, "STOCK PRICE ALERT! RESTORE POSITION! Check Alert Sheet!", "Under Alert Price");
+        MailApp.sendEmail(email, "STOCK PRICE ALERT! RESTORE POSITION! Check Alert Sheet!", `Under Alert Price ${vars[0]} ${vars[1]} [@${vars[2]}]`);
     } else if (type === "extra") {
-        MailApp.sendEmail(email, `🤑 🎉 Extra capital $${cashVal} found in ${account} Account! 🤑 🎉`, `Extra capital in ${account} Account!`);
+        MailApp.sendEmail(email, `🤑 🎉 Extra capital $${cashVal} found in ${account} Account! 🤑 🎉`, `Extra capital in ${account} Account! ${vars[0]} ${vars[1]} [@${vars[2]}]`);
     }
 };
