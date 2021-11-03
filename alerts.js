@@ -112,26 +112,29 @@ function StockAlert() {
     }
     sortAlert();
     //function to find extra cash in Accounts, and alert
-    findExtraCash(sheet);
+    findExtraCash(sheet, emails);
 }
 
-const findExtraCash = (alertSheet) => {
+const findExtraCash = (alertSheet, emails) => {
     var extraCash8034 = Math.round(alertSheet.getRange("S1").getValue());
     var extraCash6001 = Math.round(alertSheet.getRange("Y1").getValue());
     var maxValue8034 = alertSheet.getRange("W1").getValue();
     var maxValue6001 = alertSheet.getRange("X1").getValue();
+    var alertFlag = alertSheet.getRange("S2").getValue();
     var percentToOpenNewPos = 0.05;
-    if (extraCash8034 > maxValue8034 * percentToOpenNewPos) {
+    if (extraCash8034 > maxValue8034 * percentToOpenNewPos && alertFlag === "") {
         emails.map((e) => {
             sendEmail(e, null, "extra", extraCash8034, "8034");
         });
         Logger.log(`Extra cash ${extraCash8034} found in 8034 Account!`);
+        alertSheet.getRange("S2").setValue("YES");
     }
-    if (extraCash6001 > maxValue6001 * percentToOpenNewPos) {
+    if (extraCash6001 > maxValue6001 * percentToOpenNewPos && alertFlag === "") {
         emails.map((e) => {
             sendEmail(e, null, "extra", extraCash6001, "6001");
         });
         Logger.log(`Extra cash ${extraCash8034} found in 6001 Account!`);
+        alertSheet.getRange("S2").setValue("YES");
     }
 };
 
