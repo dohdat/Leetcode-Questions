@@ -344,6 +344,31 @@ var bubbleSort = function (nums) {
 // The DFS strategy prioritizes depth over breadth.
 // These strategies tell us, with DFS, we usually process one single node at each step,
 // while in BFS, we could process multiple clusters of nodes.
+//DFS strategy
+var solve = function (board) {
+    if (board.length == 0) return null; //checking for edge case
+    let rows = board.length;
+    let cols = board[0].length;
+    for (var i = 0; i < rows; i++) {
+        for (var j = 0; j < cols; j++) {
+            if (board[i][j] == "O") {
+                dfs(board, i, j);
+            }
+        }
+    }
+    return board;
+};
+
+function dfs(board, i, j) {
+    if (i < 0 || j < 0 || i >= board.length || j >= board[0].length || board[i][j] == "X" || board[i][j] == "W") {
+        return;
+    }
+    board[i][j] = "W";
+    dfs(board, i + 1, j);
+    dfs(board, i - 1, j);
+    dfs(board, i, j + 1);
+    dfs(board, i, j - 1);
+    return;
 const array = ["a", "b", "c"];
 for (let cur in array) {
 } // loop through the index 1,2,3
