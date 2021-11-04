@@ -390,3 +390,42 @@ let res = [prev];
 for (let cur of intervals) {
     ///
 }
+
+//how to traverse tree
+
+//Inorder traversal (Left -Root- Right)
+function inOrder(root) {
+    root.left && inOrder(root.left);
+    console.log(root.val);
+    root.right && inOrder(root.right);
+}
+
+//Preorder traversal(Root - Left - Right)
+function preOrder(root) {
+    console.log(root.val);
+    root.left && preOrder(root.left);
+    root.right && preOrder(root.right);
+}
+//Postorder traversal(Left - Right - Root)
+
+function postOrder(root) {
+    root.left && postOrder(root.left);
+    root.right && postOrder(root.right);
+    console.log(root.val);
+}
+//how to find the sum of all left leaves
+var sumOfLeftLeaves = function (root) {
+    return preOrder(root, false);
+};
+
+function preOrder(root, isLeft) {
+    if (root === null) {
+        return 0;
+    }
+    if (root.left === null && root.right === null && isLeft) {
+        return root.val;
+    }
+    const left = root.left && preOrder(root.left, true);
+    const right = root.right && preOrder(root.right, false);
+    return left + right;
+}
