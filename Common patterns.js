@@ -287,6 +287,9 @@ var topKFrequent = function (nums, k) {
 };
 //check if hashmap contains keys
 hashMap["key"] !== undefined;
+//push value into hashmap
+let res = {};
+res[c].push(i);
 
 //Invert Binary Tree
 // DFS
@@ -369,6 +372,7 @@ function dfs(board, i, j) {
     dfs(board, i, j + 1);
     dfs(board, i, j - 1);
     return;
+}
 const array = ["a", "b", "c"];
 for (let cur in array) {
 } // loop through the index 1,2,3
@@ -428,4 +432,11 @@ function preOrder(root, isLeft) {
     const left = root.left && preOrder(root.left, true);
     const right = root.right && preOrder(root.right, false);
     return left + right;
+}
+
+//recursive solution for fibonacci sequence
+
+function fib(n) {
+    if (n <= 1) return 1;
+    return fib(n - 1) + fib(n - 2);
 }
