@@ -9,16 +9,17 @@
  * @param {number[]} nums
  * @return {number}
  */
-function maxSubArray(A) {
-    var prev = 0;
-    var max = -Number.MAX_VALUE;
-
-    A.forEach((i) => {
-        prev = Math.max(prev + i, i);
-        max = Math.max(max, prev);
-    });
-
-    return max;
+function maxSubArray(nums) {
+    //using Kadane algo
+    let maxCur = nums[0];
+    let maxGlobal = nums[0];
+    for (let i = 1; i < nums.length; i++) {
+        maxCur = Math.max(nums[i], maxCur + nums[i]);
+        if (maxCur > maxGlobal) {
+            maxGlobal = maxCur;
+        }
+    }
+    return maxGlobal;
 }
 // @lc code=end
 
