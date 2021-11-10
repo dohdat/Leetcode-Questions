@@ -10,7 +10,7 @@
  * @return {number}
  */
 var minAddToMakeValid = function (s) {
-    s = "()))((";
+    s = "())";
     let array = s.split("");
     let map = { "(": ")" };
     let stack = [];
@@ -18,12 +18,11 @@ var minAddToMakeValid = function (s) {
         if (map[i]) {
             stack.push(map[i]);
         } else {
-            if (stack[stack.length - 1] !== i) {
+            if (stack[stack.length - 1] === i) {
                 stack.pop();
             }
         }
     }
-    console.log(stack);
 };
 // @lc code=end
 
