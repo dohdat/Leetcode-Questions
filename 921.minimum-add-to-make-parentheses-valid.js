@@ -10,19 +10,20 @@
  * @return {number}
  */
 var minAddToMakeValid = function (s) {
-    s = "())";
     let array = s.split("");
     let map = { "(": ")" };
     let stack = [];
+    let res = 0;
     for (let i of array) {
-        if (map[i]) {
+        if (map[i] !== undefined) {
             stack.push(map[i]);
         } else {
-            if (stack[stack.length - 1] === i) {
-                stack.pop();
+            if (stack.pop() !== i) {
+                res++;
             }
         }
     }
+    return stack.length > 0 ? stack.length + res : res;
 };
 // @lc code=end
 
