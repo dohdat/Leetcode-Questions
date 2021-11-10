@@ -21,7 +21,6 @@
 var sumNumbers = function (root) {
     let res = [];
     let arr = sumPathRecur(root, [], 0, res);
-    console.log(arr);
     return arr.reduce((part_sum, a) => part_sum + a, 0);
 };
 function sumPathRecur(node, path, len, res) {
@@ -39,8 +38,11 @@ function sumPathRecur(node, path, len, res) {
     return res;
 }
 function calSum(arr, len, res) {
-    let temp = parseInt(arr.join(""));
-    res.push(temp);
+    let temp = [];
+    for (let i = 0; i < len; i++) {
+        temp.push(arr[i]);
+    }
+    res.push(parseInt(temp.join("")));
 }
 // @lc code=end
 
