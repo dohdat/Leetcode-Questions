@@ -12,12 +12,12 @@
 //  ["eat","tea","tan","ate","nat","bat"]
 //aet, aet, ant, aet, ant, abt
 var groupAnagrams = function (strs) {
-    let res = {};
+    let hash = {};
     for (let i of strs) {
-        let c = i.split("").sort().join("");
-        res[c] ? res[c].push(i) : (res[c] = [i]);
+        let temp = i.split("").sort().join("");
+        hash[temp] ? hash[temp].push(i) : (hash[temp] = [i]);
     }
-    return Object.values(res);
+    return Object.values(hash);
 };
 
 // @after-stub-for-debug-begin
