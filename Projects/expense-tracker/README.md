@@ -3,6 +3,6 @@ This is an expense tracker app, written in ReactJS using Hooks (useState, useCon
 The app is live at:
 
 <div>
-    <img src="/images/screenshot_1.png" width="400px"></img> 
+    <img src="Projects/expense-tracker/src/images/screenshot_1.png" width="400px"></img> 
 </div>
 Credits to Traversy Media (https://www.traversymedia.com) for the inspired approach.
