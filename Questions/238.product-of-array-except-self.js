@@ -11,17 +11,11 @@
  */
 var productExceptSelf = function (nums) {
     let res = [];
-    let left = 1;
-    let right = 1;
-    //multiply to the right
-    for (let i = nums.length - 1; i >= 0; i--) {
-        res[i] = right;
-        right *= nums[i];
-    }
-    //multiply to the left
     for (let i = 0; i < nums.length; i++) {
-        res[i] *= left;
-        left *= nums[i];
+        let temp = [...nums];
+        let index = temp.indexOf(nums[i]);
+        temp.splice(index, 1);
+        res.push(temp.reduce((prev, cur) => prev * cur));
     }
     return res;
 };
