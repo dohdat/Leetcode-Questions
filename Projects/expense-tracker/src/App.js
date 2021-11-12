@@ -1,6 +1,8 @@
+import React from "react";
 import "./App.css";
 
 function App() {
+    const handleSubmit = () => {};
     return (
         <div className="main-container">
             <div className="main-header">Expense Tracker</div>
@@ -19,6 +21,22 @@ function App() {
                         <span>$240</span>
                     </div>
                 </div>
+                <div>
+                    <span>History</span>
+                </div>
+                <div>
+                    <span>Add new transaction</span>
+                    <div>
+                        <span>Text</span>
+                        <textarea placeholder="Enter text..."></textarea>
+                    </div>
+                    <div>
+                        <span>Amount</span>
+                        <span>(negtive - expense, positive - income)</span>
+                        <textarea placeholder="Enter amount..."></textarea>
+                    </div>
+                </div>
+                <button onClick={() => handleSubmit()}>Add Transaction</button>
             </div>
         </div>
     );
