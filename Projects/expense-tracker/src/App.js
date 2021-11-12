@@ -12,13 +12,13 @@ function App() {
                     <span className="balance">$260.00</span>
                 </div>
                 <div className="main-income">
-                    <div>
+                    <div className="income-wrapper">
                         <div className="main-title">INCOME</div>
-                        <span>$500.00</span>
+                        <span className="income">$500.00</span>
                     </div>
-                    <div>
+                    <div className="income-wrapper right">
                         <div className="main-title">EXPENSE</div>
-                        <span>$240.00</span>
+                        <span className="expense">$240.00</span>
                     </div>
                 </div>
                 <div>

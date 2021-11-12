@@ -24,4 +24,32 @@
 .main-income {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    min-width: 300px;
+    margin: 20px;
+    box-shadow: 4px 4px 8px 2px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+.income-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 0 solid lightgray;
+    border-right-width: 1px;
+}
+.income-wrapper.right {
+    border: none;
+}
+.income {
+    font-weight: 500;
+    font-size: 18px;
+    color: green;
+}
+.expense {
+    font-weight: 500;
+    font-size: 18px;
+    color: red;
 }
