@@ -10,12 +10,19 @@
 }
 .main-header {
     font-weight: 600;
-    font-size: 18px;
+    font-size: 25px;
     margin-bottom: 50px;
 }
 .main-title {
     font-weight: 400;
     font-size: 16px;
+}
+.main-title.underline {
+    width: 100%;
+    border: 0 solid lightgray;
+    border-bottom-width: 1px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 .balance {
     font-weight: 600;
@@ -27,9 +34,10 @@
     justify-content: space-around;
     align-items: center;
     min-width: 300px;
-    margin: 20px;
     box-shadow: 4px 4px 8px 2px rgba(0, 0, 0, 0.2);
     padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 .income-wrapper {
     width: 100%;

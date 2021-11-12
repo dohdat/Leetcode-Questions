@@ -22,14 +22,22 @@ function App() {
                     </div>
                 </div>
                 <div>
-                    <span className="main-title">History</span>
+                    <div className="main-title underline">History</div>
                     <div>
                         <span>Cash</span>
                         <span>+500</span>
                     </div>
+                    <div>
+                        <span>Book</span>
+                        <span>-40</span>
+                    </div>
+                    <div>
+                        <span>Camera</span>
+                        <span>-200</span>
+                    </div>
                 </div>
                 <div>
-                    <span className="main-title">Add new transaction</span>
+                    <div className="main-title underline">Add new transaction</div>
                     <div>
                         <span>Text</span>
                         <textarea placeholder="Enter text..."></textarea>
