@@ -2,4 +2,4 @@ This is an expense tracker app, written in ReactJS using Hooks (useState, useCon
 
 The app is live at:
 
-Credits to Traversy Media (https://www.traversymedia.com)
+Credits to Traversy Media (https://www.traversymedia.com) for the inspired approach.
