@@ -9,23 +9,27 @@ function App() {
             <div className="main-content">
                 <div>
                     <div className="main-title">YOUR BALANCE</div>
-                    <span>$260</span>
+                    <span className="balance">$260.00</span>
                 </div>
-                <div>
+                <div className="main-income">
                     <div>
                         <div className="main-title">INCOME</div>
-                        <span>$500</span>
+                        <span>$500.00</span>
                     </div>
                     <div>
                         <div className="main-title">EXPENSE</div>
-                        <span>$240</span>
+                        <span>$240.00</span>
                     </div>
                 </div>
                 <div>
-                    <span>History</span>
+                    <span className="main-title">History</span>
+                    <div>
+                        <span>Cash</span>
+                        <span>+500</span>
+                    </div>
                 </div>
                 <div>
-                    <span>Add new transaction</span>
+                    <span className="main-title">Add new transaction</span>
                     <div>
                         <span>Text</span>
                         <textarea placeholder="Enter text..."></textarea>
