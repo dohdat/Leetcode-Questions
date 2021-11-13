@@ -74,17 +74,23 @@
     width: 98%;
     min-height: 20px;
     margin-bottom: 20px;
+    transition: opacity 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+}
+.input-text:hover {
+    border-color: rgb(139, 139, 139);
+    border-radius: 1px;
 }
 .button {
     width: 100%;
     min-height: 40px;
-    color: white;
-    background-color: purple;
+    color: black;
+    background-color: transparent;
     border: none;
     cursor: pointer;
 }
 .button:hover {
-    background-color: lightblue;
+    background-color: rgb(240, 240, 240);
+    border-radius: 5px;
 }
 .history-item {
     position: relative;
