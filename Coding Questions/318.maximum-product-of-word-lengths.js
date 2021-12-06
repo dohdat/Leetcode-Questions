@@ -10,14 +10,18 @@
  * @return {number}
  */
 var maxProduct = function (words) {
-    let max = -Infinity;
+    let max = 0;
     for (let i = 0; i < words.length; i++) {
-        let curWord = words[i].split("");
-        let nextWord = words[i + 1].split("");
-        for (let j = 0; j < curWord.length; j++) {
-            if (nextWord.includes(curWord[j])) break;
+        let cur = words[i].split("");
+        console.log("cur:", cur);
+        for (let j = i + 1; j < words.length; j++) {
+            let next = words[j].split("");
+            console.log("next:", next);
+            let intersect = next.filter((v) => cur.includes(v));
+            console.log("intersect:", intersect);
+            max = intersect.length === 0 ? Math.max(max, cur.length * next.length) : -Infinity;
+            console.log("max:", max);
         }
-        max = Math.max(curWord.length * nextWord.length);
     }
     console.log(max);
     return max;
