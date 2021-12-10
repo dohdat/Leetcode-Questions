@@ -10,20 +10,18 @@
  * @return {number}
  */
 var maxProduct = function (words) {
+    const sortedWords = [...words].sort((a, b) => b.length - a.length);
     let max = 0;
-    for (let i = 0; i < words.length; i++) {
-        let cur = words[i].split("");
-        console.log("cur:", cur);
-        for (let j = i + 1; j < words.length; j++) {
-            let next = words[j].split("");
-            console.log("next:", next);
+    for (let i = 0; i < sortedWords.length; i++) {
+        let cur = sortedWords[i].split("");
+        for (let j = i + 1; j < sortedWords.length; j++) {
+            let next = sortedWords[j].split("");
             let intersect = next.filter((v) => cur.includes(v));
-            console.log("intersect:", intersect);
-            max = intersect.length === 0 ? Math.max(max, cur.length * next.length) : -Infinity;
-            console.log("max:", max);
+            if (intersect.length === 0) {
+                max = Math.max(max, cur.length * next.length);
+            }
         }
     }
-    console.log(max);
     return max;
 };
 // @lc code=end
