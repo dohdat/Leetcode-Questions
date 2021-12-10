@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 
 function App() {
-    const handleSubmit = () => {};
+    const handleSubmit = () => {
+        setLoading(true);
+    };
+    const [loading, setLoading] = useState(false);
 
     return (
         <div className="main-container">
@@ -44,18 +47,18 @@ function App() {
                     <div className="main-title underline">Add new transaction</div>
                     <div>
                         <div className="main-title small">Text</div>
-                        <input type="text" className="input-text" placeholder="Enter text..."></input>
+                        <input type="text" className="input-text" placeholder="Enter text..." required></input>
                     </div>
                     <div>
                         <div className="main-title small">
                             <span>Amount</span>
                             <span>(negtive - expense, positive - income)</span>
                         </div>
-                        <input type="text" className="input-text" placeholder="Enter amount..."></input>
+                        <input type="text" className="input-text" placeholder="Enter amount..." required></input>
                     </div>
                 </div>
                 <button className="button" onClick={() => handleSubmit()}>
-                    Add Transaction
+                    {loading ? "Loading ... " : "Add Transaction"}
                 </button>
             </div>
         </div>
