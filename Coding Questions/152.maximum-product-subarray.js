@@ -9,8 +9,20 @@
  * @param {number[]} nums
  * @return {number}
  */
-var maxProduct = function (nums) {
-    let localMax = nums[0];
-    let globalMax = -Infinity;
+const maxProduct = (nums) => {
+    let res = nums[0];
+    for (let i = 0; i < nums.length; i++) {
+        let curMax = nums[i];
+        for (let j = i + 1; j < nums.length; j++) {
+            res = Math.max(res, curMax);
+            curMax *= nums[j];
+        }
+        res = Math.max(res, curMax);
+    }
+    return res;
 };
 // @lc code=end
+
+// @after-stub-for-debug-begin
+module.exports = maxProduct;
+// @after-stub-for-debug-end

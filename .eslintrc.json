@@ -4,7 +4,7 @@
         "es2021": true,
         "node": true
     },
-    "extends": ["plugin:react/recommended", "airbnb"],
+    "extends": ["eslint:recommended", "plugin:react/recommended"],
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -14,6 +14,7 @@
     },
     "plugins": ["react"],
     "rules": {
-        "indent": 0
+        "indent": 0,
+        "no-console": 0
     }
 }
