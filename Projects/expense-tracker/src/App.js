@@ -6,7 +6,6 @@ function App() {
         setLoading(true);
     };
     const [loading, setLoading] = useState(false);
-
     return (
         <div className="main-container">
             <div className="main-header">Expense Tracker</div>
