@@ -4,7 +4,7 @@
         "es2021": true,
         "node": true
     },
-    "extends": ["eslint:recommended", "plugin:react/recommended"],
+    "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:react-hooks/recommended"],
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -14,7 +14,11 @@
     },
     "plugins": ["react"],
     "rules": {
-        "indent": 0,
-        "no-console": 0
+        "no-console": 1,
+        "no-unused-vars": ["error", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
+        "react/prop-types": 0,
+        "react-hooks/rules-of-hooks": 2,
+        "react-hooks/exhaustive-deps": 1,
+        "max-lines": ["error", { "max": 500, "skipBlankLines": true, "skipComments": true }]
     }
 }
