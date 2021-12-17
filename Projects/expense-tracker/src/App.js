@@ -29,17 +29,17 @@ function App() {
                     <div className="history-item">
                         <span>Cash</span>
                         <span>+500</span>
-                        <span class="material-icons delete-btn">delete</span>
+                        <span className="material-icons delete-btn">delete</span>
                     </div>
                     <div className="history-item negative">
                         <span>Book</span>
                         <span>-40</span>
-                        <span class="material-icons delete-btn">delete</span>
+                        <span className="material-icons delete-btn">delete</span>
                     </div>
                     <div className="history-item negative">
                         <span>Camera</span>
                         <span>-200</span>
-                        <span class="material-icons delete-btn">delete</span>
+                        <span className="material-icons delete-btn">delete</span>
                     </div>
                 </div>
                 <div>
