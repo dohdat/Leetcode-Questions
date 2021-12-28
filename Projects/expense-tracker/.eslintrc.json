@@ -12,12 +12,13 @@
         "ecmaVersion": 12,
         "sourceType": "module"
     },
-    "plugins": ["react"],
+    "plugins": ["react", "autofix"],
     "rules": {
-        "no-console": 1,
+        "autofix/no-console": 1,
         "no-duplicate-imports": 1,
         "no-unreachable-loop": 1,
-        "no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
+        "no-else-return": 1,
+        "autofix/no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
         "react/prop-types": 0,
         "react-hooks/rules-of-hooks": 2,
         "react-hooks/exhaustive-deps": 1,
