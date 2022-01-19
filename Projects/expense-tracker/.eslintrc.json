@@ -22,6 +22,14 @@
         "react/prop-types": 0,
         "react-hooks/rules-of-hooks": 2,
         "react-hooks/exhaustive-deps": 1,
-        "max-lines": ["warn", { "max": 500, "skipBlankLines": true, "skipComments": true }]
+        "max-lines": ["warn", { "max": 500, "skipBlankLines": true, "skipComments": true }],
+        "lines-between-class-members": ["warn", "always", { "exceptAfterSingleLine": true }],
+        "padding-line-between-statements": [
+            "warn",
+            { "blankLine": "always", "prev": "*", "next": "block" },
+            { "blankLine": "always", "prev": "block", "next": "*" },
+            { "blankLine": "always", "prev": "*", "next": "block-like" },
+            { "blankLine": "always", "prev": "block-like", "next": "*" }
+        ]
     }
 }
