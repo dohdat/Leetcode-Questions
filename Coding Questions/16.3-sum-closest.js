@@ -1,59 +1,24 @@
-/*
- * @lc app=leetcode id=16 lang=javascript
- *
- * [16] 3Sum Closest
- */
+class Solution {
+    /**
+     * Returns all paths from the top left cell to
+     * the bottom right cell.
+     *
+     * @param {Array<Array<string>>} board Input 2D array.
+     * @return {Set<string>} Set of all paths as strings.
+     */
+    //  There is a car with capacity empty seats. The vehicle only drives east (i.e., it cannot turn around and drive west).
 
-// @lc code=start
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number}
- */
-//calculates all sums, then find the closest one to target
+    //  You are given the integer capacity and an array trips where trips[i] = [numPassengersi, fromi, toi] indicates that the ith trip has numPassengersi passengers and the locations to pick them up and drop them off are fromi and toi respectively. The locations are given as the number of kilometers due east from the car's initial location.
 
-var threeSumClosest = function (nums, target) {
-    nums = [-1, 2, 1, -4];
-    target = 1;
-    let res = [];
-    for (let i = 0; i < nums.length; i++) {
-        if (i > 0 && nums[i] === nums[i - 1]) {
-            continue;
+    //  Return true if it is possible to pick up and drop off all passengers for all the given trips, or false otherwise.
+    carPooling(trips, capacity) {
+        // get a log of all the trips
+        let log = [];
+        for (let i = 0; i < trips.length; i++) {
+            log.push([trips[i][0], trips[i][1], trips[i][2]]);
         }
-        let l = i + 1;
-        let r = nums.length - 1;
-        while (l < r) {
-            let sum = nums[i] + nums[l] + nums[r];
-            console.log("sum:", sum);
-            res.push(sum);
-            l++;
-            r--;
-        }
+        
     }
+}
 
-    var closest = res.reduce((prev, cur) => {
-        return Math.abs(cur - target) < Math.abs(prev - target) ? cur : prev;
-    });
-    return closest;
-
-    // let min = Number.MAX_VALUE;
-    // let hashMap = {};
-    // res.forEach((item) => ((min = Math.min(min, target - item)), (hashMap[item] = min)));
-    // let keys = Object.keys(hashMap);
-    // let closest = hashMap[keys[0]];
-
-    // for (let i = 0; i < keys.length; i++) {
-    //     let value = hashMap[keys[i]];
-    //     closest = Math.min(closest, value);
-    // }
-
-    // for (let i in hashMap) {
-    //     if (hashMap[i] === closest) {
-    //         return i;
-    //     }
-    // }
-};
-// @lc code=end
-// @after-stub-for-debug-begin
-module.exports = threeSumClosest;
-// @after-stub-for-debug-end
+module.exports = Solution;
