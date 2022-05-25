@@ -14,6 +14,7 @@ export default function App() {
         setData({ ...data, [e.target.name]: e.target.value });
     };
     const handleSubmit = (e) => {
+        //disables the default activities by the browser on an element.
         e.preventDefault();
         if (type === "submit") {
             setBudget([...budget, data]);
@@ -22,6 +23,7 @@ export default function App() {
             setBudget([...budget]);
             setType("submit");
         }
+        //reset the form
         setData({
             charge: "",
             amount: "",
