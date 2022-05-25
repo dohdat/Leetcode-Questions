@@ -10,25 +10,26 @@
  * @return {number}
  */
 
+// count the number of palindromic substrings
 var countSubstrings = function (s) {
-    var count = 0;
-    for (let i = 0; i < s.length; i++) {
-        count += expand(s, i, i);
-        count += expand(s, i, i + 1);
-    }
-
-    return count;
-};
-
-var expand = function (s, left, right) {
     let count = 0;
-    while (left >= 0 && right <= s.length && s[left] === s[right]) {
-        left--;
-        right++;
-        count++;
+    for (let i = 0; i < s.length; i++) {
+        count += helper(s, i, i);
+        count += helper(s, i, i + 1);
     }
     return count;
 };
+
+var helper = function (s, start, end) {
+    let count = 0;
+    while (start >= 0 && end < s.length && s[start] === s[end]) {
+        count++;
+        start--;
+        end++;
+    }
+    return count;
+};
+
 // @lc code=end
 
 // @lc code=end
