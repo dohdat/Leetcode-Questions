@@ -63,11 +63,11 @@ export default function App() {
                 <form onSubmit={handleSubmit}>
                     <div>
                         <span>Charge</span>
-                        <input placeholder="e.g. rent" name="charge" type="text" value={data.charge} required onChange={(e) => handleOnChange(e)}></input>
+                        <input placeholder="e.g. rent" name="charge" type="text" value={data.charge} required onChange={handleOnChange}></input>
                     </div>
                     <div>
                         <span>Amount</span>
-                        <input type="number" placeholder="e.g. $100" name="amount" min="1" value={data.amount} required onChange={(e) => handleOnChange(e)}></input>
+                        <input type="number" placeholder="e.g. $100" name="amount" min="1" value={data.amount} required onChange={handleOnChange}></input>
                     </div>
                     <button type="submit">{type === "submit" ? "Submit" : "Edit"}</button>
 
